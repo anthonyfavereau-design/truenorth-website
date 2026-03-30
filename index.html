@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TrueNorth Cleanouts — Southern NH's garage and basement cleanout specialists. We haul it, sort it, and buy what's valuable. Free quotes, same-week scheduling. Londonderry, Manchester, Nashua, Bedford, Salem, Derry, Windham NH.">
+  <title>TrueNorth Cleanouts | Garage & Basement Cleanouts — Southern NH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET & ROOT ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --slate:      #1E2832;
+      --slate-mid:  #2A3644;
+      --slate-lt:   #3A4A5C;
+      --cobalt:     #1E64DC;
+      --cobalt-dk:  #1550B8;
+      --cobalt-lt:  #4A84EC;
+      --silver:     #E8ECF0;
+      --offwhite:   #F4F6F8;
+      --white:      #FFFFFF;
+      --text-body:  #5a6472;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      color: var(--slate);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--slate);
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+    .nav-links a {
+      color: rgba(232,236,240,0.55);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-family: 'Barlow Condensed', sans-serif;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--silver); }
+    .nav-cta {
+      background: var(--cobalt);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 3px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--cobalt-dk); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--slate);
+      padding: 96px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(30,100,220,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 30%;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,132,236,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 1060px; margin: 0 auto; }
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--cobalt-lt);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 76px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.0;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+    .hero h1 span { color: var(--cobalt-lt); }
+    .hero-tagline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(232,236,240,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 28px;
+    }
+    .hero-sub {
+      color: rgba(232,236,240,0.68);
+      font-size: 17px;
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 44px;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 52px;
+    }
+    .btn-primary {
+      background: var(--cobalt);
+      color: var(--white);
+      padding: 15px 36px;
+      border-radius: 3px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--cobalt-dk); }
+    .btn-ghost {
+      color: rgba(232,236,240,0.5);
+      font-size: 14px;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(232,236,240,0.2);
+      padding-bottom: 2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .btn-ghost:hover { color: rgba(232,236,240,0.8); border-color: rgba(232,236,240,0.4); }
+    .hero-pills {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .pill-label {
+      color: rgba(232,236,240,0.28);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+    .pill {
+      background: rgba(30,100,220,0.12);
+      color: rgba(232,236,240,0.75);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 2px;
+      border: 1px solid rgba(30,100,220,0.28);
+    }
+
+    /* ── TRUST BAR ── */
+    .trust {
+      background: var(--cobalt);
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    .trust-item {
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 4px 24px;
+    }
+    .trust-div {
+      width: 1px;
+      height: 18px;
+      background: rgba(255,255,255,0.22);
+    }
+
+    /* ── SECTION SHARED ── */
+    .sec-inner { max-width: 1060px; margin: 0 auto; }
+    .sec-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+      margin-bottom: 8px;
+    }
+    .sec-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 46px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--slate);
+      line-height: 1.0;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+    .sec-sub {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 88px 48px;
+      background: var(--offwhite);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .svc-card {
+      background: var(--white);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--cobalt);
+    }
+    .svc-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 80px;
+      font-weight: 900;
+      color: rgba(30,100,220,0.06);
+      line-height: 1;
+      position: absolute;
+      top: 16px; right: 24px;
+      user-select: none;
+    }
+    .svc-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+      position: relative; z-index: 1;
+    }
+    .svc-card p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-body);
+      max-width: 380px;
+      position: relative; z-index: 1;
+    }
+    .svc-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      position: relative; z-index: 1;
+    }
+    .svc-tag {
+      background: rgba(30,100,220,0.07);
+      color: var(--cobalt);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+    .svc-note {
+      background: rgba(30,100,220,0.04);
+      border: 1px solid rgba(30,100,220,0.12);
+      border-radius: 3px;
+      padding: 22px 28px;
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+    .svc-note strong { color: var(--cobalt); }
+    .svc-note a { color: var(--cobalt); font-weight: 600; }
+
+    /* ── HOW IT WORKS ── */
+    .how {
+      padding: 88px 48px;
+      background: var(--white);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .step-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 80px;
+      font-weight: 900;
+      color: rgba(30,100,220,0.09);
+      line-height: 1;
+      margin-bottom: 0;
+    }
+    .step-bar {
+      height: 3px;
+      width: 48px;
+      background: var(--cobalt);
+      margin-bottom: 20px;
+    }
+    .step h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 12px;
+      letter-spacing: 0.03em;
+    }
+    .step p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+
+    /* ── SERVICE AREA ── */
+    .area {
+      padding: 72px 48px;
+      background: var(--slate);
+    }
+    .area .sec-eyebrow { color: var(--cobalt-lt); }
+    .area .sec-title { color: var(--white); margin-bottom: 28px; }
+    .area-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .area-pill {
+      background: rgba(232,236,240,0.06);
+      color: rgba(232,236,240,0.7);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      border-radius: 2px;
+      border: 1px solid rgba(232,236,240,0.1);
+    }
+    .area-pill.primary {
+      background: rgba(30,100,220,0.18);
+      border-color: rgba(30,100,220,0.35);
+      color: var(--cobalt-lt);
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 88px 48px;
+      background: var(--slate-mid);
+    }
+    .contact .sec-eyebrow { color: var(--cobalt-lt); }
+    .contact .sec-title { color: var(--white); }
+    .contact .sec-sub { color: rgba(232,236,240,0.5); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .contact-tagline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+    .contact-tagline span { color: var(--cobalt-lt); }
+    .contact-body {
+      color: rgba(232,236,240,0.55);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 14px; }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(232,236,240,0.65);
+      font-size: 14px;
+    }
+    .contact-icon {
+      width: 36px; height: 36px;
+      background: rgba(30,100,220,0.15);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .form { display: flex; flex-direction: column; gap: 12px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form input,
+    .form select,
+    .form textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: rgba(232,236,240,0.05);
+      border: 1px solid rgba(232,236,240,0.12);
+      border-radius: 3px;
+      color: rgba(232,236,240,0.9);
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form input:focus,
+    .form select:focus,
+    .form textarea:focus { border-color: rgba(30,100,220,0.5); }
+    .form input::placeholder,
+    .form textarea::placeholder { color: rgba(232,236,240,0.28); }
+    .form select { color: rgba(232,236,240,0.45); }
+    .form textarea { height: 110px; resize: none; }
+    .form button {
+      background: var(--cobalt);
+      color: var(--white);
+      border: none;
+      padding: 16px;
+      border-radius: 3px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+      transition: background 0.15s;
+    }
+    .form button:hover { background: var(--cobalt-dk); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #0f151c;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-left {
+      color: rgba(232,236,240,0.22);
+      font-size: 12px;
+    }
+    .footer-right {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .footer-badge {
+      color: var(--cobalt-lt);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .footer-sep { color: rgba(232,236,240,0.15); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 64px 20px 56px; }
+      .hero h1 { font-size: 48px; }
+      .services, .how, .area, .contact { padding: 60px 20px; }
+      .services-grid, .steps, .contact-grid { grid-template-columns: 1fr; }
+      .trust { padding: 14px 20px; flex-direction: column; gap: 8px; }
+      .trust-div { display: none; }
+      .footer { padding: 20px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a href="#">
+    <svg width="220" height="52" viewBox="0 0 220 52">
+      <g transform="translate(0,2)">
+        <circle cx="22" cy="22" r="18" fill="none" stroke="rgba(232,236,240,0.08)" stroke-width="1.2"/>
+        <circle cx="22" cy="22" r="13" fill="none" stroke="rgba(30,100,220,0.18)" stroke-width="0.8"/>
+        <polygon points="22,6 26,20 22,17 18,20" fill="#4A84EC"/>
+        <polygon points="22,38 18,24 22,27 26,24" fill="rgba(232,236,240,0.18)"/>
+        <circle cx="22" cy="22" r="2.8" fill="#1E64DC"/>
+        <text x="22" y="4.5" font-family="'Barlow Condensed',sans-serif" font-size="6" font-weight="900" fill="#4A84EC" text-anchor="middle" letter-spacing="0.5">N</text>
+      </g>
+      <text x="50" y="26" font-family="'Barlow Condensed',sans-serif" font-size="22" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">TRUENORTH</text>
+      <text x="51" y="40" font-family="'Barlow Condensed',sans-serif" font-size="10" font-weight="700" fill="#4A84EC" letter-spacing="3.5">CLEANOUTS</text>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#how">How It Works</a>
+    <a href="#area">Service Area</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Free Quote</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Southern NH's Garage & Basement Cleanout Specialists</div>
+    <h1>Clear the Space.<br><span>Keep the Value.</span></h1>
+    <div class="hero-tagline">Londonderry, NH &nbsp;·&nbsp; NH Registered LLC</div>
+    <p class="hero-sub">We specialize in garage and basement cleanouts across southern NH. We haul it, sort it, and buy what's valuable — one visit, one call, done.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#how" class="btn-ghost">See How It Works</a>
+    </div>
+    <div class="hero-pills">
+      <span class="pill-label">We Do</span>
+      <span class="pill">Garage Cleanouts</span>
+      <span class="pill">Basement Cleanouts</span>
+      <span class="pill">Item Resale & Buyback</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust">
+  <div class="trust-item">NH Registered LLC</div>
+  <div class="trust-div"></div>
+  <div class="trust-item">Free On-Site Quotes</div>
+  <div class="trust-div"></div>
+  <div class="trust-item">Same-Week Scheduling</div>
+  <div class="trust-div"></div>
+  <div class="trust-item">We Buy Valuable Items</div>
+  <div class="trust-div"></div>
+  <div class="trust-item">Locally Owned · Londonderry, NH</div>
+</div>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">What We Do</div>
+    <div class="sec-title">We Specialize in Two Things.<br>And We Do Them Well.</div>
+    <p class="sec-sub">Most cleanout companies do everything. We focus on garages and basements — the two most cluttered spaces in any home — and we do it better than anyone in southern NH.</p>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-num">01</div>
+        <h3>Garage Cleanouts</h3>
+        <p>Full-garage cleanouts including tools, equipment, furniture, boxes, and years of accumulated items. We sort everything, haul it out, and make you an offer on anything worth keeping.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Same-Week Available</span>
+          <span class="svc-tag">We Buy Tools & Equipment</span>
+          <span class="svc-tag">Full Haul-Out</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <h3>Basement Cleanouts</h3>
+        <p>Full-basement cleanouts — storage boxes, old furniture, appliances, and decades of accumulated items. We take everything and leave the space broom clean.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Appliance Removal</span>
+          <span class="svc-tag">Furniture Hauling</span>
+          <span class="svc-tag">Broom-Clean Finish</span>
+        </div>
+      </div>
+    </div>
+    <div class="svc-note">
+      <strong>Need something else?</strong> We occasionally accommodate estate cleanouts, storage unit cleanouts, and other jobs on a case-by-case basis. <a href="#contact">Reach out and ask</a> — we're happy to talk through your situation.
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="how" id="how">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">The Process</div>
+    <div class="sec-title">How It Works</div>
+    <p class="sec-sub">Three steps. No surprises.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-bar"></div>
+        <h3>Request a Quote</h3>
+        <p>Call or fill out the form below. We schedule a free on-site estimate within 24 hours — no pressure, no obligation.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-bar"></div>
+        <h3>We Show Up & Sort</h3>
+        <p>Our crew arrives on time, sorts everything, and makes you an offer on any items worth buying back. You decide what stays.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-bar"></div>
+        <h3>Clean Space, Done</h3>
+        <p>We haul everything out, leave the space broom-clean, and hand you payment for any recovered items. One visit. Done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICE AREA ── -->
+<section class="area" id="area">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Where We Work</div>
+    <div class="sec-title">Service Area</div>
+    <div class="area-pills">
+      <span class="area-pill primary">Manchester, NH</span>
+      <span class="area-pill primary">Nashua, NH</span>
+      <span class="area-pill primary">Londonderry, NH</span>
+      <span class="area-pill primary">Bedford, NH</span>
+      <span class="area-pill primary">Salem, NH</span>
+      <span class="area-pill primary">Derry, NH</span>
+      <span class="area-pill primary">Windham, NH</span>
+      <span class="area-pill">Greater Boston (secondary)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Get Started</div>
+    <div class="sec-title">Request a Free Quote</div>
+    <p class="sec-sub">We respond within 24 hours. Same-week scheduling available for most jobs.</p>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-tagline">Clear the Space.<br><span>Keep the Value.</span></div>
+        <p class="contact-body">TrueNorth Cleanouts specializes in garage and basement cleanouts across southern NH. We're locally owned and built on the idea that your cleanout should put money back in your pocket — not just cost you one.</p>
+        <div class="contact-details">
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z" stroke="#4A84EC" stroke-width="1.2"/>
+                <circle cx="8" cy="6" r="1.5" stroke="#4A84EC" stroke-width="1.2"/>
+              </svg>
+            </div>
+            Londonderry, NH &nbsp;·&nbsp; Southern NH & Greater Boston
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="2" width="12" height="12" rx="2" stroke="#4A84EC" stroke-width="1.2"/>
+                <path d="M5 8h6M5 5h4" stroke="#4A84EC" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            TrueNorth Cleanouts LLC &nbsp;·&nbsp; NH Registered
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="6" stroke="#4A84EC" stroke-width="1.2"/>
+                <path d="M8 5v3l2 2" stroke="#4A84EC" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            Free quotes within 24 hours
+          </div>
+        </div>
+      </div>
+      <form class="form" onsubmit="return false;">
+        <div class="form-row">
+          <input type="text" placeholder="First name" name="first_name">
+          <input type="text" placeholder="Last name" name="last_name">
+        </div>
+        <input type="tel" placeholder="Phone number" name="phone">
+        <input type="email" placeholder="Email address" name="email">
+        <select name="job_type">
+          <option value="" disabled selected>Job type</option>
+          <option value="garage">Garage cleanout</option>
+          <option value="basement">Basement cleanout</option>
+          <option value="both">Both garage & basement</option>
+          <option value="other">Other (let's talk)</option>
+        </select>
+        <textarea placeholder="Describe the job — rough size, location, timeline, anything useful..." name="message"></textarea>
+        <button type="submit">Submit Quote Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <span class="footer-left">© 2026 TrueNorth Cleanouts LLC &nbsp;·&nbsp; Londonderry, NH &nbsp;·&nbsp; All rights reserved</span>
+  <div class="footer-right">
+    <span class="footer-badge">NH Registered LLC</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-badge">truenorthcleanouts.com</span>
+  </div>
+</footer>
+
+</body>
+</html>
