@@ -902,6 +902,134 @@
       line-height: 1.6;
     }
 
+    /* ── REAL RESULTS GALLERY ── */
+    .gallery-section {
+      background: var(--offwhite);
+      padding: 96px 48px;
+    }
+
+    /* Before/After Slider */
+    .ba-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto 48px;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: col-resize;
+      user-select: none;
+      box-shadow: 0 8px 40px rgba(30,40,50,0.18);
+      aspect-ratio: 3/2;
+    }
+    .ba-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ba-before-clip {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      width: 50%;
+    }
+    .ba-before-clip .ba-img {
+      max-width: none;
+    }
+    .ba-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .ba-handle-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      background: white;
+      box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    }
+    .ba-handle-circle {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--cobalt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      border: 2px solid white;
+    }
+    .ba-label {
+      position: absolute;
+      top: 16px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(30,40,50,0.65);
+      padding: 4px 12px;
+      border-radius: 3px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .ba-label-before { left: 16px; }
+    .ba-label-after { right: 16px; }
+
+    /* Photo Strip */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .photo-strip-item {
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(30,40,50,0.12);
+      background: var(--slate);
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+    .photo-strip-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .photo-strip-item:hover img { transform: scale(1.04); }
+    .photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(20,28,40,0.82));
+      color: white;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 28px 12px 10px;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
 
@@ -928,6 +1056,10 @@
       /* SECTIONS — padding & typography */
       .values, .how, .area, .contact, .donation { padding: 56px 20px; }
       .services { padding: 56px 20px; }
+      /* Gallery tablet */
+      .gallery-section { padding: 72px 24px; }
+      .photo-strip { grid-template-columns: 1fr 1fr; }
+      .photo-strip-item:last-child { grid-column: span 2; aspect-ratio: 16/7; }
       .sec-title { font-size: 34px; }
       .sec-sub { font-size: 14px; margin-bottom: 32px; }
 
@@ -978,6 +1110,10 @@
       .nav-phone { font-size: 13px; }
       .nav-phone svg { display: none; }
       .nav-cta { display: none; }
+      /* Gallery mobile */
+      .gallery-section { padding: 64px 20px; }
+      .photo-strip { grid-template-columns: 1fr; }
+      .ba-wrap { aspect-ratio: 4/3; }
     }
   </style>
 </head>
@@ -1131,6 +1267,50 @@
     </div>
     <div class="svc-note">
       <strong>Have a different kind of job?</strong> Garages and basements are our bread and butter, but we're happy to talk through anything. Storage units, attics, estate situations — <a href="#contact">reach out and describe what you've got</a>. If we can help, we will.
+    </div>
+  </div>
+</section>
+
+<!-- ── REAL RESULTS GALLERY ── -->
+<section class="gallery-section" id="gallery">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Real Work. Real Results.</div>
+    <div class="sec-title">See What We Do</div>
+    <p class="sec-sub">These are actual jobs — not stock photos. Drag the slider to see the garage transformation, then scroll to see more.</p>
+
+    <!-- Before / After Slider -->
+    <div class="ba-wrap">
+      <div class="ba-label ba-label-before">Before</div>
+      <div class="ba-label ba-label-after">After</div>
+      <img class="ba-img ba-after" src="garage-after.jpg" alt="Garage after cleanout — completely clear">
+      <div class="ba-before-clip">
+        <img class="ba-img ba-before" src="garage-before.jpg" alt="Garage before cleanout — packed with boxes and junk">
+      </div>
+      <div class="ba-handle" id="baHandle">
+        <div class="ba-handle-line"></div>
+        <div class="ba-handle-circle">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M6 9H2M2 9L4.5 6.5M2 9L4.5 11.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 9H16M16 9L13.5 6.5M16 9L13.5 11.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo Strip -->
+    <div class="photo-strip">
+      <div class="photo-strip-item">
+        <img src="truck-loaded.jpg" alt="Truck loaded with items from cleanout">
+        <div class="photo-caption">Fully Loaded — One Job's Worth</div>
+      </div>
+      <div class="photo-strip-item">
+        <img src="basement-before-1.jpg" alt="Cluttered basement before cleanout">
+        <div class="photo-caption">Basement Cleanout — Before</div>
+      </div>
+      <div class="photo-strip-item">
+        <img src="basement-before-2.jpg" alt="Basement mid-cleanout, second angle">
+        <div class="photo-caption">Basement — Cleared Out</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1410,6 +1590,46 @@
     <span class="footer-badge">truenorthcleanoutsnh.com</span>
   </div>
 </footer>
+
+<!-- ── BEFORE / AFTER SLIDER SCRIPT ── -->
+<script>
+(function() {
+  const wrap = document.querySelector('.ba-wrap');
+  if (!wrap) return;
+  const clip = wrap.querySelector('.ba-before-clip');
+  const handle = wrap.querySelector('.ba-handle');
+  const beforeImg = clip.querySelector('.ba-img');
+  let dragging = false;
+
+  function setPosition(pct) {
+    pct = Math.max(4, Math.min(96, pct));
+    clip.style.width = pct + '%';
+    handle.style.left = pct + '%';
+    // keep before image the full container width regardless of clip width
+    beforeImg.style.width = wrap.offsetWidth + 'px';
+  }
+
+  function getPercent(clientX) {
+    const rect = wrap.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
+  }
+
+  // init at 50%
+  let currentPct = 50;
+  setPosition(currentPct);
+  window.addEventListener('resize', () => setPosition(currentPct));
+
+  function move(clientX) { currentPct = getPercent(clientX); setPosition(currentPct); }
+
+  wrap.addEventListener('mousedown', e => { dragging = true; move(e.clientX); });
+  window.addEventListener('mousemove', e => { if (dragging) move(e.clientX); });
+  window.addEventListener('mouseup', () => { dragging = false; });
+
+  wrap.addEventListener('touchstart', e => { dragging = true; move(e.touches[0].clientX); }, {passive: true});
+  window.addEventListener('touchmove', e => { if (dragging) move(e.touches[0].clientX); }, {passive: true});
+  window.addEventListener('touchend', () => { dragging = false; });
+})();
+</script>
 
 </body>
 </html>
