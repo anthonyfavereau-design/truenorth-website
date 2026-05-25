@@ -1282,9 +1282,9 @@
     <div class="ba-wrap">
       <div class="ba-label ba-label-before">Before</div>
       <div class="ba-label ba-label-after">After</div>
-      <img class="ba-img ba-after" src="garage-after.jpg" alt="Garage after cleanout — completely clear">
+      <img class="ba-img ba-after" src="garage-after.jpg" alt="Garage after cleanout — completely clear" draggable="false">
       <div class="ba-before-clip">
-        <img class="ba-img ba-before" src="garage-before.jpg" alt="Garage before cleanout — packed with boxes and junk">
+        <img class="ba-img ba-before" src="garage-before.jpg" alt="Garage before cleanout — packed with boxes and junk" draggable="false">
       </div>
       <div class="ba-handle" id="baHandle">
         <div class="ba-handle-line"></div>
@@ -1622,11 +1622,11 @@
   function move(clientX) { currentPct = getPercent(clientX); setPosition(currentPct); }
 
   wrap.addEventListener('mousedown', e => { dragging = true; move(e.clientX); });
-  window.addEventListener('mousemove', e => { if (dragging) move(e.clientX); });
+  window.addEventListener('mousemove', e => { e.preventDefault(); if (dragging) move(e.clientX); });
   window.addEventListener('mouseup', () => { dragging = false; });
 
   wrap.addEventListener('touchstart', e => { dragging = true; move(e.touches[0].clientX); }, {passive: true});
-  window.addEventListener('touchmove', e => { if (dragging) move(e.touches[0].clientX); }, {passive: true});
+  window.addEventListener('touchmove', e => { e.preventDefault(); if (dragging) move(e.touches[0].clientX); }, {passive: false});
   window.addEventListener('touchend', () => { dragging = false; });
 })();
 </script>
